@@ -101,9 +101,11 @@ const submit = () => {
         </form>
     </GuestLayout> -->
 
-    <div class="flex items-center justify-end h-screen bg-gray-100">
-        <div class="absolute h-screen w-1/2 bg-[#5730F6] transform -translate-x-full rotate-45 origin-bottom-left"></div>
-        <div class="w-1/2">
+    <div class="flex items-center justify-center h-screen bg-gray-100">
+        <div class="absolute top-0 h-[800px] w-1/2 bg-[#5730F6] transform -translate-x-full rounded-[50px] rotate-45 ml-[100px]">
+
+        </div>
+        <div class="w-1/2 ml-[430px] ">
             <div class="p-8 bg-white rounded-lg shadow-md">
                 <div class="mb-4">
                     <div class="relative pt-1">
@@ -111,7 +113,7 @@ const submit = () => {
                             <template v-for="(step, index) in steps" :key="index">
                                 <div
                                     :class="[
-                                        'w-8 h-8 flex items-center justify-center rounded-full',
+                                        'w-8 h-8 flex items-center justify-center rounded-lg',
                                         index <= currentStep
                                             ? 'bg-blue-500 text-white'
                                             : 'bg-gray-200 text-gray-500',
@@ -121,7 +123,7 @@ const submit = () => {
                                 </div>
                                 <div
                                     v-if="index < steps.length - 1"
-                                    class="flex-1 h-2.5 mx-1"
+                                    class="flex-1 h-2.5 "
                                     :class="
                                         index < currentStep
                                             ? 'bg-blue-500'
