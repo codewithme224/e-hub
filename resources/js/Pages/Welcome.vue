@@ -2,6 +2,7 @@
 import { Head, Link } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import Header from '@/Layouts/Header.vue';
+import Footer from '@/Layouts/Footer.vue';
 
 
 
@@ -32,9 +33,11 @@ function handleImageError() {
 </script>
 
 <template>
+
+  <div class="overflow-x-hidden">
     <Head title="Welcome" />
     <div class="bg-gray-50 text-black/50 dark:bg-white dark:text-white/50 h-[850px]">
-        <div class="absolute transform -rotate-45  top-[-600px] rounded-l-[130px] rounded-br-md  right-[-770px] bg-[#FFC961]  w-[1400px] h-[1150px]">
+        <div class="absolute overflow-x-hidden transform -rotate-45  top-[-600px] rounded-l-[130px] rounded-br-md  right-[-770px] bg-[#FFC961]  w-[1400px] h-[1150px]">
         </div>
 
         <div
@@ -43,7 +46,7 @@ function handleImageError() {
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <Header />
 
-                <main class="mt-6">              
+                <main class="mt-6">
                     <div class="relative overflow-hidden">
                         <div class="container mx-auto px-6 py-12">
                             <div class="flex flex-wrap lg:flex-nowrap items-center">
@@ -72,11 +75,11 @@ function handleImageError() {
                                     </div>
                                     <div class="">
                                         <p class="text-black text-xl font-bold ">2,291</p>
-                                        <span class=" text-zinc-500 text-sm">Happy Customers</span> 
+                                        <span class=" text-zinc-500 text-sm">Happy Customers</span>
                                     </div>
                                     <div >
                                         <p class="font-bold text-black text-lg">4.8/5</p>
-                                        <span class="text-purple-600">★★★★☆</span> 
+                                        <span class="text-purple-600">★★★★☆</span>
                                     </div>
                                 </div>
                                 </div>
@@ -86,16 +89,16 @@ function handleImageError() {
                                         alt="Education Illustration"
                                         class="max-w-sm mx-auto lg:mx-30 w-[1200px] h-[500px] lg:ml-auto"
                                     />
-                               
+
                             </div>
                         </div>
                         </div>
                     </div>
                 </main>
-    
+
             </div>
         </div>
- 
+
     </div>
     <div class=" flex items-center justify-center mt-[350px]">
         <div class="max-w-6xl mx-auto px-4   py-8">
@@ -126,9 +129,9 @@ function handleImageError() {
                     <div class="p-4 bg-white shadow rounded-lg mb-6">
                         <h2 class="text-lg font-semibold mb-4">Users Activity</h2>
                         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-                    
+
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -156,12 +159,12 @@ function handleImageError() {
                     </h2>
                     <p>Revolutionize learning with eHUB’s robust Learning Management System. Our LMS provides an interactive platform for teachers and students, facilitating seamless course management, content delivery, and progress tracking. Experience the future of education, personalized and at your fingertips, with eHUB’s LMS.”</p>
                     </div>
-                    
-                    
+
+
                 </div>
 
                 <div class="col-span-1 md:col-span-1">
-                    
+
                         <div class="flex justify-center items-center ">
                             <div class="w-[350px] h-[350px] bg-[#6FFFB1] rounded-full mix-blend-multiply"></div>
                             <div class="w-[350px] h-[350px] bg-[#FEEE61] rounded-full mix-blend-multiply -ml-[150px]"></div>
@@ -170,15 +173,15 @@ function handleImageError() {
                             </div>
                         </div>
 
-                    
+
                 </div>
             </div>
 
 
             <div class="grid grid-cols-1 mt-[200px] text-center items-center md:grid-cols-2 gap-6">
-                
+
                     <div class="col-span-1 md:col-span-1">
-                        
+
                         <div class="flex justify-center items-center ">
                             <div class="w-[350px] h-[350px] bg-[#FEEE61] rounded-full mix-blend-multiply"></div>
                             <div class="w-[350px] h-[350px] bg-[#FF77D9]  rounded-full mix-blend-multiply -ml-[150px]"></div>
@@ -187,7 +190,7 @@ function handleImageError() {
                             </div>
                         </div>
 
-                    
+
                     </div>
                     <div class="space-y-8 m-5">
                         <div class="p-4 bg-white shadow rounded-lg">
@@ -196,11 +199,11 @@ function handleImageError() {
                         </h2>
                         <p>Pellentesque blandit augue facilisis malesuada interdum eleifend risus, commodo. Egestas senectus vehicula vel consectetur eu. Sit pulvinar urna diam lacus fringilla eu cursus.</p>
                         </div>
-                        
-                        
+
+
                     </div>
 
-                
+
             </div>
 
             <div class="grid grid-cols-1 mt-[200px] text-center items-center md:grid-cols-2 gap-6">
@@ -212,11 +215,11 @@ function handleImageError() {
                     <p>Pellentesque blandit augue facilisis malesuada interdum eleifend risus, commodo. Egestas senectus vehicula vel consectetur eu. Sit pulvinar urna diam lacus fringilla eu cursus.</p>
                     <button class="bg-[#6640FF] text-white mt-2 flex justify-start p-2 rounded-full px-6">Get Started</button>
                     </div>
-                    
+
                 </div>
 
                 <div class="col-span-1 md:col-span-1">
-                    
+
                         <div class="flex justify-center items-center ">
                             <div class="w-[350px] h-[350px] bg-[#6640FF] rounded-full mix-blend-multiply"></div>
                             <div class="w-[350px] h-[350px] bg-[#FF77D9] rounded-full mix-blend-multiply -ml-[150px]"></div>
@@ -225,16 +228,16 @@ function handleImageError() {
                             </div>
                         </div>
 
-                    
+
                 </div>
             </div>
 
-            
+
             <div class="bg-white p-6 md:p-12 relative bg-map-image" >
                 <div style="background-image: url('assets/images/map.png'); opacity: 0.3;"></div>
                <div class="flex justify-center flex-col items-center">
                 <p class="text-xs uppercase text-zinc-500 font-semibold tracking-wider mb-1">Trusted By 20,000+ Clients✨✨</p>
-            
+
                 <h2 class="text-3xl md:text-4xl font-bold text-zinc-800 mb-6">What Our Client Think About Us?</h2>
                </div>
                 <div class="flex justify-center mt-[200px] items-center relative">
@@ -284,7 +287,8 @@ function handleImageError() {
         </div>
     </div>
 
-    
+    <Footer/>
+  </div>
 
 </template>
 
@@ -308,7 +312,7 @@ function handleImageError() {
         }]
     },
     options: {
-                
+
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -316,8 +320,8 @@ function handleImageError() {
                         }
                     }]
                 },
-                
-                cornerRadius: 15 
+
+                cornerRadius: 15
             }
     });
         }
@@ -337,7 +341,7 @@ function handleImageError() {
     right: 0;
     bottom: 0;
     background-image: url('assets/images/map.png');
-    opacity: 0.5; 
+    opacity: 0.5;
     z-index: -1;
 }
 </style>

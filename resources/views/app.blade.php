@@ -23,8 +23,8 @@
         @inertia
 
 
-        
-      
+
+
 
 <script>
     var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
