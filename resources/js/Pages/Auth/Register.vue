@@ -21,93 +21,28 @@ const submit = () => {
 </script>
 
 <template>
-    <!-- <GuestLayout>
-        <Head title="Register" />
-
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="name" value="Name" />
-
-                <TextInput
-                    id="name"
-                    type="text"
-                    class="block w-full mt-1"
-                    v-model="form.name"
-                    required
-                    autofocus
-                    autocomplete="name"
+    
+    <Link :href="route('welcome')" class="relative flex justify-end mr-5">
+                        <img class="w-12 " src="assets/images/logo.png" alt="">
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-[#6640FF]">E-HUB</span>
+                        
+                    </Link>
+    <div class="flex items-center justify-center ">
+        <div class="hide-medium md:block lg:block absolute top-0 h-[800px] w-1/2 bg-[#5730F6] transform -translate-x-full rounded-[50px] rotate-45 ml-[100px]">
+            <div class="absolute ml-[400px] w-[300px] h-auto flex items-center justify-center transform -rotate-45">
+                <img
+                    src="assets/images/step-img.png"
+                    alt="Education Illustration"
+                    class="max-w-sm mx-auto  lg:mx-30 w-[900px] h-[500px]"
                 />
-
-                <InputError class="mt-2" :message="form.errors.name" />
             </div>
-
-            <div class="mt-4">
-                <InputLabel for="email" value="Email" />
-
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="block w-full mt-1"
-                    v-model="form.email"
-                    required
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
-                <TextInput
-                    id="password"
-                    type="password"
-                    class="block w-full mt-1"
-                    v-model="form.password"
-                    required
-                    autocomplete="new-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-
-                <TextInput
-                    id="password_confirmation"
-                    type="password"
-                    class="block w-full mt-1"
-                    v-model="form.password_confirmation"
-                    required
-                    autocomplete="new-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link
-                    :href="route('login')"
-                    class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    Already registered?
-                </Link>
-
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
-                </PrimaryButton>
-            </div>
-        </form>
-    </GuestLayout> -->
-
-    <div class="flex items-center justify-center h-screen bg-gray-100">
-        <div class="absolute top-0 h-[800px] w-1/2 bg-[#5730F6] transform -translate-x-full rounded-[50px] rotate-45 ml-[100px]">
-
         </div>
-        <div class="w-1/2 ml-[430px] ">
-            <div class="p-8 bg-white rounded-lg shadow-md">
+        <div class="w-full lg:w-1/2  lg:ml-[350px]">
+            <div class="p-8">
                 <div class="mb-4">
+                    <div class="relative ml-[600px] h-8 w-8 rounded-full flex justify-start bg-[#F6AD2B66]"></div>
+                    <h1 class="text-bold text-4xl mb-1 text-[#5730F6]">{{ currentStepTitle }}</h1>
+                    <p class="mb-5 text-[#5730F6]">{{ currentStepSubTitle }}</p>
                     <div class="relative pt-1">
                         <div class="flex items-center justify-between mb-2">
                             <template v-for="(step, index) in steps" :key="index">
@@ -115,7 +50,7 @@ const submit = () => {
                                     :class="[
                                         'w-8 h-8 flex items-center justify-center rounded-lg',
                                         index <= currentStep
-                                            ? 'bg-blue-500 text-white'
+                                            ? 'bg-[#5730F6] text-white'
                                             : 'bg-gray-200 text-gray-500',
                                     ]"
                                 >
@@ -126,7 +61,7 @@ const submit = () => {
                                     class="flex-1 h-2.5 "
                                     :class="
                                         index < currentStep
-                                            ? 'bg-blue-500'
+                                            ? 'bg-[#5730F6]'
                                             : 'bg-gray-200'
                                     "
                                 ></div>
@@ -156,7 +91,7 @@ const submit = () => {
                         <button
                             type="button"
                             @click="nextStep"
-                            class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+                            class="bg-custom-gradient px-4 py-2 text-white  rounded hover:bg-blue-700"
                             :class="{
                                 hidden: currentStep === steps.length - 1,
                             }"
@@ -185,6 +120,7 @@ import Step2 from "./Forms/Step2.vue";
 import Step3 from "./Forms/Step3.vue";
 import Step4 from "./Forms/Step4.vue";
 
+
 export default {
     components: {
         Step1,
@@ -196,7 +132,17 @@ export default {
         return {
             currentStep: 0,
             steps: ["Step1", "Step2", "Step3", "Step4"],
+            stepTitles: ["Our packages", "Let’s get started", "We are almost there", "Signup Completed"],
+            stepSubTitles: ["Look through our packages and select the one within your scope", "School Details", "Payment Details", "Congrats"],
         };
+    },
+    computed: {
+        currentStepTitle() {
+            return this.stepTitles[this.currentStep];
+        },
+        currentStepSubTitle() {
+            return this.stepSubTitles[this.currentStep];
+        }
     },
     methods: {
         nextStep() {
@@ -223,4 +169,23 @@ export default {
 .block {
     display: block;
 }
+
+@media (max-width: 768px) {
+  .hide-medium {
+    display: none;
+  }
+}
+
+.gradient-animation {
+            background-size: 200% 200%;
+            animation: gradientBG 4s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+
 </style>

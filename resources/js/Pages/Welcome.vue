@@ -37,7 +37,7 @@ function handleImageError() {
   <div class="overflow-x-hidden">
     <Head title="Welcome" />
     <div class="bg-gray-50 text-black/50 dark:bg-white dark:text-white/50 h-[850px]">
-        <div class="absolute overflow-x-hidden transform -rotate-45  top-[-600px] rounded-l-[130px] rounded-br-md  right-[-770px] bg-[#FFC961]  w-[1400px] h-[1150px]">
+        <div class="absolute overflow-x-hidden transform -rotate-45  top-[-600px] rounded-l-[130px] rounded-br-md  right-[-770px]  w-[1400px] h-[1150px] gradient-animation bg-gradient-to-r from-[#FFC961] to-[#3D2699]">
         </div>
 
         <div
@@ -149,6 +149,109 @@ function handleImageError() {
                     <p class="text-white">Automation Templates For Creating Your Campaigns Quickly</p>
                 </div>
             </div>
+
+            <h1 class="flex justify-center items-center text-4xl text-bold mt-[50px]">Pricing</h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-5">
+        <!-- Card 1 -->
+        <div class="bg-gradient-custom p-6 rounded-lg shadow-lg text-white">
+            <h3 class="text-2xl font-bold">GH₵ 310<span class="text-lg">/MONTH</span></h3>
+            <p class="mt-2 text-sm">FOR SCHOOLS WITH 2000-5000 STUDENTS</p>
+            <ul class="mt-4 space-y-2">
+                <li class="flex items-center">
+                    <div class="bg-green-500 rounded-full">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    </div>
+                    <span class="ml-2">Learning Management System</span>
+                </li>
+                <li class="flex items-center">
+                  <div class="bg-green-500 rounded-full">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    </div>
+                    <span class="ml-2">School Management System</span>
+                </li>
+                <li class="flex items-center">
+                  <div class="bg-green-500 rounded-full">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    </div>
+                    <span class="ml-2">Information Management System</span>
+                </li>
+            </ul>
+            <button class="mt-6 bg-black text-white py-2 px-4 rounded-lg">Choose plan</button>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="bg-gradient-custom p-6 rounded-lg shadow-lg text-white">
+            <h3 class="text-2xl font-bold">GH₵ 600<span class="text-lg">/MONTH</span></h3>
+            <p class="mt-2 text-sm">FOR SCHOOLS WITH 5000-8000 STUDENTS</p>
+            <ul class="mt-4 space-y-2">
+                <li class="flex items-center">
+                    <div class="bg-green-500 rounded-full">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    </div>
+                    <span class="ml-2">Learning Management System</span>
+                </li>
+                <li class="flex items-center">
+                    <div class="bg-green-500 rounded-full">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    </div>
+                    <span class="ml-2">School Management System</span>
+                </li>
+                <li class="flex items-center">
+                    <div class="bg-green-500 rounded-full">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    </div>
+                    <span class="ml-2">Information Management System</span>
+                </li>
+            </ul>
+            <button class="mt-6 bg-black text-white py-2 px-4 rounded-lg">Choose plan</button>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="bg-gradient-custom p-6 rounded-lg shadow-lg text-white">
+            <h3 class="text-2xl font-bold">GH₵ 800<span class="text-lg">/MONTH</span></h3>
+            <p class="mt-2 text-sm">FOR SCHOOLS WITH 8000+ STUDENTS</p>
+            <ul class="mt-4 space-y-2">
+                <li class="flex items-center">
+                    <div class="bg-green-500 rounded-full">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    </div>
+                    <span class="ml-2">Learning Management System</span>
+                </li>
+                <li class="flex items-center">
+                    <div class="bg-green-500 rounded-full">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    </div>
+                    <span class="ml-2">School Management System</span>
+                </li>
+                <li class="flex items-center">
+                    <div class="bg-green-500 rounded-full">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    </div>
+                    <span class="ml-2">Information Management System</span>
+                </li>
+            </ul>
+            <button class="mt-6 bg-black text-white py-2 px-4 rounded-lg">Choose plan</button>
+        </div>
+    </div>
 
 
             <div class="grid grid-cols-1 mt-[200px] text-center items-center md:grid-cols-2 gap-6">
@@ -344,4 +447,20 @@ function handleImageError() {
     opacity: 0.5;
     z-index: -1;
 }
+
+.bg-gradient-custom {
+    background: linear-gradient(180deg, #6466F1, #F5AD54);
+}
+
+
+.gradient-animation {
+            background-size: 200% 200%;
+            animation: gradientBG 4s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 </style>
