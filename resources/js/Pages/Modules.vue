@@ -79,7 +79,7 @@ export default {
   data() {
     return {
       modules: [
-        { id: 1, title: "School Management System", icon: "/assets/images/module/sms.png" , externalUrl: "https://innovatechsolutn.com/"},
+        { id: 1, title: "School Management System", icon: "/assets/images/module/sms.png" , externalUrl: "https://sms.ehubs.io/"},
         { id: 2, title: "Learning Management System", icon: "/assets/images/module/lms.png" },
         { id: 3, title: "Super Admin Dashboard", icon: "/assets/images/module/admin.png" , externalUrl: "https://ges.ehubs.io/"},
         { id: 4, title: "E Hub Community", icon: "/assets/images/module/sms.png" },
