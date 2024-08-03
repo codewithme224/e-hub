@@ -79,12 +79,12 @@ export default {
   data() {
     return {
       modules: [
-        { id: 1, title: "School Management System", icon: "/assets/images/module/sms.png" },
-        { id: 2, title: "Learning Management System", icon: "/assets/images/module/lms.png", externalUrl: "https://innovatechsolutn.com/" },
-        { id: 3, title: "Super Admin Dashboard", icon: "/assets/images/module/admin.png" },
+        { id: 1, title: "School Management System", icon: "/assets/images/module/sms.png" , externalUrl: "https://innovatechsolutn.com/"},
+        { id: 2, title: "Learning Management System", icon: "/assets/images/module/lms.png" },
+        { id: 3, title: "Super Admin Dashboard", icon: "/assets/images/module/admin.png" , externalUrl: "https://ges.ehubs.io/"},
         { id: 4, title: "E Hub Community", icon: "/assets/images/module/sms.png" },
         { id: 5, title: "Teachers Portal", icon: "/assets/images/module/pt.png" },
-        { id: 6, title: "Student Dashboard (Plug)", icon: "/assets/images/module/sd.png" },
+        { id: 6, title: "Student Dashboard (PIM)", icon: "/assets/images/module/sd.png" },
         { id: 7, title: "PIM", icon: "/assets/images/module/pim.png" },
         { id: 8, title: "Inventory Module", icon: "/assets/images/module/pt.png" },
         { id: 9, title: "Procurement Module", icon: "/assets/images/module/pm.png" },
@@ -92,7 +92,7 @@ export default {
         { id: 11, title: "Finance Module", icon: "/assets/images/module/finance.png" },
         { id: 12, title: "HR Module", icon: "/assets/images/module/hr.png" },
         { id: 13, title: "Hostel Management", icon: "/assets/images/module/hostel.png" },
-        { id: 14, title: "AVA & IOT", icon: "/assets/images/module/ai.png" },
+        { id: 14, title: "AVA AI", icon: "/assets/images/module/ai.png" },
         { id: 15, title: "Store", icon: "/assets/images/module/store.png" },
         { id: 16, title: "Staff Management", icon: "/assets/images/module/staff.png" },
       ],
