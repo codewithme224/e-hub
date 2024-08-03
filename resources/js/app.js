@@ -1,11 +1,14 @@
 import './bootstrap';
 import '../css/app.css';
 
+import 'primeicons/primeicons.css'
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
-
+import PrimeVue from 'primevue/config';
+import Aura from '@primevue/themes/aura';
+// import 'primevue/resources/themes/aura-light-green/theme.css'
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({
@@ -15,9 +18,19 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
+            .use(PrimeVue)
             .mount(el);
     },
     progress: {
         color: '#FFC961',
     },
+    theme: {
+        preset: Aura
+    }
 });
+
+// app.use(PrimeVue, {
+//     theme: {
+//         preset: Aura
+//     }
+// });

@@ -1,9 +1,15 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import DynamicDialog from 'primevue/dynamicdialog';
 import Header from '@/Layouts/Header.vue';
 import Footer from '@/Layouts/Footer.vue';
-
+import { useDialog } from 'primevue/usedialog';
+import Register from '@/Pages/Auth/Register.vue';
+// import { useToast } from 'primevue/usetoast';
+import Button from 'primevue/button';
+// const toast = useToast();
+// const dialog = useDialog();
 
 
 defineProps({
@@ -30,6 +36,38 @@ function handleImageError() {
     document.getElementById('background')?.classList.add('!hidden');
 }
 
+
+
+
+
+
+const showRegister = () => {
+    const dialogRef = dialog.open(Register, {
+        props: {
+            header: 'Product List',
+            style: {
+                width: '50vw',
+            },
+            breakpoints:{
+                '960px': '75vw',
+                '640px': '90vw'
+            },
+            modal: true
+        },
+
+        onClose: (options) => {
+            const data = options.data;
+            if (data) {
+                const buttonType = data.buttonType;
+                const summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: `Pressed '${buttonType}' button` } : { summary: 'Product Selected', detail: data.name };
+
+                // toast.add({ severity:'info', ...summary_and_detail, life: 3000 });
+            }
+        }
+    });
+}
+
+
 </script>
 
 <template>
@@ -48,17 +86,22 @@ function handleImageError() {
 
                 <main class="mt-6">
                     <div class="relative overflow-hidden">
-                        <div class="container mx-auto px-6 py-12">
-                            <div class="flex flex-wrap lg:flex-nowrap items-center">
+                        <div class="container px-6 py-12 mx-auto">
+                            <div class="flex flex-wrap items-center lg:flex-nowrap">
                                 <div class="w-full lg:w-1/2">
-                                <h1 class="text-4xl font-bold text-zinc-800 dark:text-black mb-2">
+                                <h1 class="mb-2 text-4xl font-bold text-zinc-800 dark:text-black">
                                     Empowering Education, One Click At A Time!
                                 </h1>
-                                <p class="text-black dark:text-black  mb-6 ">
+                                <p class="mb-6 text-black dark:text-black ">
                                     E-Hub Is A Hub That Bring Schools Closer To Achieving Maximum Productivity
                                 </p>
+                                <Button label="SIGN UP NOW" icon="pi-user-plus"  />
+
+                                <DynamicDialog />
+
                                 <Link
                                     :href="route('register')"
+                                    icon="pi-user-plus"
                                     class="bg-gradient-to-r from-[#FFC961] to-[#3D2699] text-white px-6 py-3 rounded-full shadow-lg md:shadow-2xl hover:bg-purple-700 transition-colors"
                                 >
                                     SIGN UP NOW
@@ -66,24 +109,24 @@ function handleImageError() {
                                 <div class="mt-4">
                                     <Link :href="route('login')" class="text-gray-600 hover:underline">Already Using E-HUB? <span class="text-purple-600">Sign In</span></Link>
                                 </div>
-                                <div class="flex items-center space-x-4 mt-6">
-                                    <div class="flex -space-x-4 rtl:space-x-reverse justify-center">
+                                <div class="flex items-center mt-6 space-x-4">
+                                    <div class="flex justify-center -space-x-4 rtl:space-x-reverse">
                                         <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://images.unsplash.com/photo-1531727991582-cfd25ce79613?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJsYWNrJTIwZ2lybCUyMHByb2Zlc3Npb25hbHxlbnwwfHwwfHx8MA%3D%3D" alt="">
                                         <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://images.unsplash.com/photo-1522512115668-c09775d6f424?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJsYWNrJTIwZ2lybCUyMHByb2Zlc3Npb25hbHxlbnwwfHwwfHx8MA%3D%3D" alt="">
                                         <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://media.istockphoto.com/id/1785050262/photo/young-african-schoolgirl-working-on-digital-tablet-and-smiling.webp?b=1&s=170667a&w=0&k=20&c=MztI3eUy1iGxANgnRhmQLYb_L-5_ElFcGjlXfzx19Z4=" alt="">
                                         <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">+99</a>
                                     </div>
                                     <div class="">
-                                        <p class="text-black text-xl font-bold ">2,291</p>
-                                        <span class=" text-zinc-500 text-sm">Happy Customers</span>
+                                        <p class="text-xl font-bold text-black ">2,291</p>
+                                        <span class="text-sm text-zinc-500">Happy Customers</span>
                                     </div>
                                     <div >
-                                        <p class="font-bold text-black text-lg">4.8/5</p>
+                                        <p class="text-lg font-bold text-black">4.8/5</p>
                                         <span class="text-purple-600">★★★★☆</span>
                                     </div>
                                 </div>
                                 </div>
-                                <div class="w-full h-full  mt-32 lg:mt-0">
+                                <div class="w-full h-full mt-32 lg:mt-0">
                                     <img
                                         src="assets/images/hero-img.png"
                                         alt="Education Illustration"
@@ -101,33 +144,33 @@ function handleImageError() {
 
     </div>
     <div class=" flex items-center justify-center mt-[350px]">
-        <div class="max-w-6xl mx-auto px-4   py-8">
-            <h1 class="text-4xl font-bold text-center mb-12">One Platform For Any School</h1>
-            <div class="grid grid-cols-1 text-center md:grid-cols-3 gap-6">
+        <div class="max-w-6xl px-4 py-8 mx-auto">
+            <h1 class="mb-12 text-4xl font-bold text-center">One Platform For Any School</h1>
+            <div class="grid grid-cols-1 gap-6 text-center md:grid-cols-3">
                 <div class="space-y-6">
-                    <div class="p-4 bg-white shadow rounded-lg">
-                    <h2 class="text-lg font-semibold flex items-center">
-                        <span class="text-white  mr-2"><i class="bg-[#f68d8b] rounded-full p-2 fa-solid fa-briefcase"></i></span> Appointments
+                    <div class="p-4 bg-white rounded-lg shadow">
+                    <h2 class="flex items-center text-lg font-semibold">
+                        <span class="mr-2 text-white"><i class="bg-[#f68d8b] rounded-full p-2 fa-solid fa-briefcase"></i></span> Appointments
                     </h2>
                     <p>Many desktop publishing packages and web page editors now use for them.</p>
                     </div>
-                    <div class="p-4 bg-white shadow rounded-lg">
-                    <h2 class="text-lg font-semibold flex items-center">
-                        <span class="text-white mr-2"><i class="bg-[#00e676] rounded-full p-2 fa-solid fa-book"></i></span> Class Bookings
+                    <div class="p-4 bg-white rounded-lg shadow">
+                    <h2 class="flex items-center text-lg font-semibold">
+                        <span class="mr-2 text-white"><i class="bg-[#00e676] rounded-full p-2 fa-solid fa-book"></i></span> Class Bookings
                     </h2>
                     <p>Many desktop publishing packages and web page editors now use for them.</p>
                     </div>
-                    <div class="p-4 bg-white shadow rounded-lg">
-                    <h2 class="text-lg font-semibold flex items-center">
-                        <span class="text-white mr-2"><i class="bg-[#6640FF] rounded-full p-2 fa-solid fa-chart-line"></i></span> Ai And Analytics
+                    <div class="p-4 bg-white rounded-lg shadow">
+                    <h2 class="flex items-center text-lg font-semibold">
+                        <span class="mr-2 text-white"><i class="bg-[#6640FF] rounded-full p-2 fa-solid fa-chart-line"></i></span> Ai And Analytics
                     </h2>
                     <p>Harness the power of data with eHUB's AI and Analytics feature.</p>
                     </div>
                 </div>
 
                 <div class="col-span-1 md:col-span-2">
-                    <div class="p-4 bg-white shadow rounded-lg mb-6">
-                        <h2 class="text-lg font-semibold mb-4">Users Activity</h2>
+                    <div class="p-4 mb-6 bg-white rounded-lg shadow">
+                        <h2 class="mb-4 text-lg font-semibold">Users Activity</h2>
                         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
                     </div>
@@ -136,15 +179,15 @@ function handleImageError() {
             </div>
 
             <div class="grid grid-cols-1 bg-[#6640FF] md:grid-cols-3 gap-6 mt-12 rounded-lg">
-                <div class="p-4  shadow rounded-lg text-center">
+                <div class="p-4 text-center rounded-lg shadow">
                     <h3 class="text-3xl font-bold text-white">110+</h3>
                     <p class="text-white">Automation Templates For Creating Your Campaigns Quickly</p>
                 </div>
-                <div class="p-4  shadow rounded-lg text-center">
+                <div class="p-4 text-center rounded-lg shadow">
                     <h3 class="text-3xl font-bold text-white">4M</h3>
                     <p class="text-white">Automation Templates For Creating Your Campaigns Quickly</p>
                 </div>
-                <div class="p-4  shadow rounded-lg text-center">
+                <div class="p-4 text-center rounded-lg shadow">
                     <h3 class="text-3xl font-bold text-white">99.99%</h3>
                     <p class="text-white">Automation Templates For Creating Your Campaigns Quickly</p>
                 </div>
@@ -152,9 +195,9 @@ function handleImageError() {
 
             <h1 class="flex justify-center items-center text-4xl text-bold mt-[50px]">Pricing</h1>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-5">
+            <div class="grid grid-cols-1 gap-6 mt-5 md:grid-cols-3">
         <!-- Card 1 -->
-        <div class="bg-gradient-custom p-6 rounded-lg shadow-lg text-white">
+        <div class="p-6 text-white rounded-lg shadow-lg bg-gradient-custom">
             <h3 class="text-2xl font-bold">GH₵ 310<span class="text-lg">/MONTH</span></h3>
             <p class="mt-2 text-sm">FOR SCHOOLS WITH 2000-5000 STUDENTS</p>
             <ul class="mt-4 space-y-2">
@@ -183,11 +226,11 @@ function handleImageError() {
                     <span class="ml-2">Information Management System</span>
                 </li>
             </ul>
-            <button class="mt-6 bg-black text-white py-2 px-4 rounded-lg">Choose plan</button>
+            <button class="px-4 py-2 mt-6 text-white bg-black rounded-lg">Choose plan</button>
         </div>
-        
+
         <!-- Card 2 -->
-        <div class="bg-gradient-custom p-6 rounded-lg shadow-lg text-white">
+        <div class="p-6 text-white rounded-lg shadow-lg bg-gradient-custom">
             <h3 class="text-2xl font-bold">GH₵ 600<span class="text-lg">/MONTH</span></h3>
             <p class="mt-2 text-sm">FOR SCHOOLS WITH 5000-8000 STUDENTS</p>
             <ul class="mt-4 space-y-2">
@@ -216,11 +259,11 @@ function handleImageError() {
                     <span class="ml-2">Information Management System</span>
                 </li>
             </ul>
-            <button class="mt-6 bg-black text-white py-2 px-4 rounded-lg">Choose plan</button>
+            <button class="px-4 py-2 mt-6 text-white bg-black rounded-lg">Choose plan</button>
         </div>
-        
+
         <!-- Card 3 -->
-        <div class="bg-gradient-custom p-6 rounded-lg shadow-lg text-white">
+        <div class="p-6 text-white rounded-lg shadow-lg bg-gradient-custom">
             <h3 class="text-2xl font-bold">GH₵ 800<span class="text-lg">/MONTH</span></h3>
             <p class="mt-2 text-sm">FOR SCHOOLS WITH 8000+ STUDENTS</p>
             <ul class="mt-4 space-y-2">
@@ -249,16 +292,16 @@ function handleImageError() {
                     <span class="ml-2">Information Management System</span>
                 </li>
             </ul>
-            <button class="mt-6 bg-black text-white py-2 px-4 rounded-lg">Choose plan</button>
+            <button class="px-4 py-2 mt-6 text-white bg-black rounded-lg">Choose plan</button>
         </div>
     </div>
 
 
             <div class="grid grid-cols-1 mt-[200px] text-center items-center md:grid-cols-2 gap-6">
-                <div class="space-y-8 m-5">
-                    <div class="p-4 bg-white shadow rounded-lg">
-                    <h2 class="text-lg font-semibold flex items-center">
-                        <span class="text-white  mr-2"><i class="bg-[#f68d8b] rounded-full p-2 fa-solid fa-briefcase"></i></span> Learning Management System (LMS)
+                <div class="m-5 space-y-8">
+                    <div class="p-4 bg-white rounded-lg shadow">
+                    <h2 class="flex items-center text-lg font-semibold">
+                        <span class="mr-2 text-white"><i class="bg-[#f68d8b] rounded-full p-2 fa-solid fa-briefcase"></i></span> Learning Management System (LMS)
                     </h2>
                     <p>Revolutionize learning with eHUB’s robust Learning Management System. Our LMS provides an interactive platform for teachers and students, facilitating seamless course management, content delivery, and progress tracking. Experience the future of education, personalized and at your fingertips, with eHUB’s LMS.”</p>
                     </div>
@@ -268,10 +311,10 @@ function handleImageError() {
 
                 <div class="col-span-1 md:col-span-1">
 
-                        <div class="flex justify-center items-center ">
+                        <div class="flex items-center justify-center ">
                             <div class="w-[350px] h-[350px] bg-[#6FFFB1] rounded-full mix-blend-multiply"></div>
                             <div class="w-[350px] h-[350px] bg-[#FEEE61] rounded-full mix-blend-multiply -ml-[150px]"></div>
-                            <div class=" p-6  absolute z-10">
+                            <div class="absolute z-10 p-6 ">
                                 <img src="assets/images/llms.png" alt="LMS" class="rounded-lg w-[450px] h-[350px]">
                             </div>
                         </div>
@@ -285,20 +328,20 @@ function handleImageError() {
 
                     <div class="col-span-1 md:col-span-1">
 
-                        <div class="flex justify-center items-center ">
+                        <div class="flex items-center justify-center ">
                             <div class="w-[350px] h-[350px] bg-[#FEEE61] rounded-full mix-blend-multiply"></div>
                             <div class="w-[350px] h-[350px] bg-[#FF77D9]  rounded-full mix-blend-multiply -ml-[150px]"></div>
-                            <div class=" p-6  absolute z-10">
+                            <div class="absolute z-10 p-6 ">
                                 <img src="assets/images/sms.png" alt="LMS" class="rounded-2xl w-[450px] h-[350px]">
                             </div>
                         </div>
 
 
                     </div>
-                    <div class="space-y-8 m-5">
-                        <div class="p-4 bg-white shadow rounded-lg">
-                        <h2 class="text-lg font-semibold flex items-center">
-                            <span class="text-white  mr-2"><i class="bg-[#f68d8b] rounded-full p-2 fa-solid fa-briefcase"></i></span> School Management Sytem
+                    <div class="m-5 space-y-8">
+                        <div class="p-4 bg-white rounded-lg shadow">
+                        <h2 class="flex items-center text-lg font-semibold">
+                            <span class="mr-2 text-white"><i class="bg-[#f68d8b] rounded-full p-2 fa-solid fa-briefcase"></i></span> School Management Sytem
                         </h2>
                         <p>Pellentesque blandit augue facilisis malesuada interdum eleifend risus, commodo. Egestas senectus vehicula vel consectetur eu. Sit pulvinar urna diam lacus fringilla eu cursus.</p>
                         </div>
@@ -310,10 +353,10 @@ function handleImageError() {
             </div>
 
             <div class="grid grid-cols-1 mt-[200px] text-center items-center md:grid-cols-2 gap-6">
-                <div class="space-y-8 m-5">
-                    <div class="p-4 bg-white shadow rounded-lg">
-                    <h2 class="text-lg font-semibold flex items-center">
-                        <span class="text-white  mr-2"><i class="bg-[#f68d8b] rounded-full p-2 fa-solid fa-briefcase"></i></span> Personal Information Management System
+                <div class="m-5 space-y-8">
+                    <div class="p-4 bg-white rounded-lg shadow">
+                    <h2 class="flex items-center text-lg font-semibold">
+                        <span class="mr-2 text-white"><i class="bg-[#f68d8b] rounded-full p-2 fa-solid fa-briefcase"></i></span> Personal Information Management System
                     </h2>
                     <p>Pellentesque blandit augue facilisis malesuada interdum eleifend risus, commodo. Egestas senectus vehicula vel consectetur eu. Sit pulvinar urna diam lacus fringilla eu cursus.</p>
                     <button class="bg-[#6640FF] text-white mt-2 flex justify-start p-2 rounded-full px-6">Get Started</button>
@@ -323,10 +366,10 @@ function handleImageError() {
 
                 <div class="col-span-1 md:col-span-1">
 
-                        <div class="flex justify-center items-center ">
+                        <div class="flex items-center justify-center ">
                             <div class="w-[350px] h-[350px] bg-[#6640FF] rounded-full mix-blend-multiply"></div>
                             <div class="w-[350px] h-[350px] bg-[#FF77D9] rounded-full mix-blend-multiply -ml-[150px]"></div>
-                            <div class=" p-6  absolute z-10">
+                            <div class="absolute z-10 p-6 ">
                                 <img src="assets/images/pim.png" alt="LMS" class="rounded-lg w-[300px] h-[300px]">
                             </div>
                         </div>
@@ -336,53 +379,53 @@ function handleImageError() {
             </div>
 
 
-            <div class="bg-white p-6 md:p-12 relative bg-map-image" >
+            <div class="relative p-6 bg-white md:p-12 bg-map-image" >
                 <div style="background-image: url('assets/images/map.png'); opacity: 0.3;"></div>
-               <div class="flex justify-center flex-col items-center">
-                <p class="text-xs uppercase text-zinc-500 font-semibold tracking-wider mb-1">Trusted By 20,000+ Clients✨✨</p>
+               <div class="flex flex-col items-center justify-center">
+                <p class="mb-1 text-xs font-semibold tracking-wider uppercase text-zinc-500">Trusted By 20,000+ Clients✨✨</p>
 
-                <h2 class="text-3xl md:text-4xl font-bold text-zinc-800 mb-6">What Our Client Think About Us?</h2>
+                <h2 class="mb-6 text-3xl font-bold md:text-4xl text-zinc-800">What Our Client Think About Us?</h2>
                </div>
                 <div class="flex justify-center mt-[200px] items-center relative">
                     <div class="relative z-10">
-                        <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+                        <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full">
                             <div
-                            class="relative w-64 h-64 rounded-full border-4 border-purple-500 flex justify-center items-center"
+                            class="relative flex items-center justify-center w-64 h-64 border-4 border-purple-500 rounded-full"
                             >
                             <img
                                 src="https://placehold.co/100x100"
                                 alt="Main testimonial"
-                                class="w-24 h-24 rounded-full border-4 border-white shadow-lg"
+                                class="w-24 h-24 border-4 border-white rounded-full shadow-lg"
                             />
                             </div>
                         </div>
-                        <div class="flex justify-between items-center w-72 mx-auto">
+                        <div class="flex items-center justify-between mx-auto w-72">
                             <img
                             src="https://placehold.co/50x50"
                             alt="Client 1"
-                            class="w-12 h-12 rounded-full border-2 border-purple-500 shadow"
+                            class="w-12 h-12 border-2 border-purple-500 rounded-full shadow"
                             />
                             <img
                             src="https://placehold.co/50x50"
                             alt="Client 2"
-                            class="w-12 h-12 rounded-full border-2 border-purple-500 shadow"
+                            class="w-12 h-12 border-2 border-purple-500 rounded-full shadow"
                             />
                             <img
                             src="https://placehold.co/50x50"
                             alt="Client 3"
-                            class="w-12 h-12 rounded-full border-2 border-purple-500 shadow"
+                            class="w-12 h-12 border-2 border-purple-500 rounded-full shadow"
                             />
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-center items-center relative mt-[90px]">
+                <div class="flex justify-center items-center relative mt-[90px] p-5">
                     <div class="text-center flex justify-center flex-col items-center w-[400px] rounded-lg shadow-lg mt-8">
-                    <p class="text-sm text-zinc-600">
+                    <p class="p-4 text-sm text-zinc-600">
                     Build your financial literacy within a transparent community. Follow other investors, share
                     insights with people from different professional backgrounds, and never be alone.
                     </p>
-                    <p class="text-lg text-zinc-800 font-semibold mt-2">Jony Scotty</p>
-                    <p class="text-zinc-500 text-sm">UI Designer</p>
+                    <p class="mt-2 text-lg font-semibold text-zinc-800">Jony Scotty</p>
+                    <!-- <p class="text-sm text-zinc-500">UI Designer</p> -->
                 </div>
                 </div>
             </div>

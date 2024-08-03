@@ -33,7 +33,7 @@ const submit = () => {
     <!-- <GuestLayout>
         <Head title="Log in" />
 
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+        <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
             {{ status }}
         </div>
 
@@ -44,7 +44,7 @@ const submit = () => {
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="block w-full mt-1"
                     v-model="form.email"
                     required
                     autofocus
@@ -60,7 +60,7 @@ const submit = () => {
                 <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="block w-full mt-1"
                     v-model="form.password"
                     required
                     autocomplete="current-password"
@@ -72,7 +72,7 @@ const submit = () => {
             <div class="block mt-4">
                 <label class="flex items-center">
                     <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ms-2 text-sm text-gray-600">Remember me</span>
+                    <span class="text-sm text-gray-600 ms-2">Remember me</span>
                 </label>
             </div>
 
@@ -80,7 +80,7 @@ const submit = () => {
                 <Link
                     v-if="canResetPassword"
                     :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                     Forgot your password?
                 </Link>
@@ -96,7 +96,7 @@ const submit = () => {
     <Link :href="route('welcome')" class="relative flex justify-end mr-5">
                         <img class="w-12 " src="assets/images/logo.png" alt="">
                         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-[#6640FF]">E-HUB</span>
-                        
+
                     </Link>
     <div class="flex items-center justify-center ">
         <div class="hide-medium md:block lg:block absolute top-0 h-[800px] w-1/2 bg-[#5730F6] transform -translate-x-full rounded-[50px] rotate-45 ml-[100px]">
@@ -112,20 +112,20 @@ const submit = () => {
             <div class="p-8">
                 <div class="mb-4">
                     <div class="relative ml-[600px] h-8 w-8 rounded-full flex justify-start bg-[#F6AD2B66]"></div>
-                    
+
                 </div>
 
-                <div class="min-h-screen flex items-center justify-center">
-  <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
-    <h1 class="text-2xl font-bold text-purple-700 dark:text-purple-600 mb-2">Welcome to E-Hub</h1>
-    <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-6">Login the right Credentials</p>
+                <div class="flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+    <h1 class="mb-2 text-2xl font-bold text-purple-700 dark:text-purple-600">Welcome to E-Hub</h1>
+    <p class="mb-6 text-sm text-zinc-600 dark:text-zinc-400">Login the right Credentials</p>
     <form>
       <div class="mb-4">
-        <label class="block text-zinc-700 dark:text-zinc-300 text-sm font-bold mb-2" for="email">
+        <label class="block mb-2 text-sm font-bold text-zinc-700 dark:text-zinc-300" for="email">
           Email Address
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 dark:text-zinc-300 leading-tight focus:outline-none focus:shadow-outline"
+          class="w-full px-3 py-2 leading-tight border rounded shadow appearance-none text-zinc-700 dark:text-zinc-300 focus:outline-none focus:shadow-outline"
           id="email"
           type="email"
           placeholder="Email Address"
@@ -133,24 +133,24 @@ const submit = () => {
       </div>
       <div class="mb-4">
         <label
-          class="block text-zinc-700 dark:text-zinc-300 text-sm font-bold mb-2"
+          class="block mb-2 text-sm font-bold text-zinc-700 dark:text-zinc-300"
           for="school-name"
         >
           School Name
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 dark:text-zinc-300 leading-tight focus:outline-none focus:shadow-outline"
+          class="w-full px-3 py-2 leading-tight border rounded shadow appearance-none text-zinc-700 dark:text-zinc-300 focus:outline-none focus:shadow-outline"
           id="school-name"
           type="text"
           placeholder="School Name"
         />
       </div>
       <div class="mb-4">
-        <label class="block text-zinc-700 dark:text-zinc-300 text-sm font-bold mb-2" for="password">
+        <label class="block mb-2 text-sm font-bold text-zinc-700 dark:text-zinc-300" for="password">
           Password
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 dark:text-zinc-300 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          class="w-full px-3 py-2 mb-3 leading-tight border rounded shadow appearance-none text-zinc-700 dark:text-zinc-300 focus:outline-none focus:shadow-outline"
           id="password"
           type="password"
           placeholder="Password"
@@ -158,11 +158,11 @@ const submit = () => {
       </div>
       <div class="flex items-center justify-between mb-6">
         <label class="inline-flex items-center text-sm text-zinc-600 dark:text-zinc-400">
-          <input type="checkbox" class="form-checkbox text-purple-600 dark:text-purple-400" />
+          <input type="checkbox" class="text-purple-600 form-checkbox dark:text-purple-400" />
           <span class="ml-2">Remember Me</span>
         </label>
         <Link
-          class="inline-block align-baseline font-bold text-sm text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-600"
+          class="inline-block text-sm font-bold text-purple-600 align-baseline dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-600"
           :href="route('password.request')"
         >
           Forgot Password?
@@ -170,15 +170,17 @@ const submit = () => {
       </div>
       <div class="mb-4">
         <button
-          class="bg-purple-700 dark:bg-purple-500 hover:bg-purple-800 dark:hover:bg-purple-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+          class="w-full px-4 py-2 font-bold text-white bg-purple-700 rounded dark:bg-purple-500 hover:bg-purple-800 dark:hover:bg-purple-600 focus:outline-none focus:shadow-outline"
           type="button"
         >
-          LOGIN
+        <Link :href="route('module')">
+            LOGIN
+        </Link>
         </button>
       </div>
       <div class="flex items-center justify-center mb-4">
         <hr class="w-full border-zinc-300 dark:border-zinc-600" />
-        <span class="absolute bg-white  px-4 text-zinc-600 dark:text-zinc-400"
+        <span class="absolute px-4 bg-white text-zinc-600 dark:text-zinc-400"
           >Or Login with</span
         >
       </div>
@@ -187,13 +189,13 @@ const submit = () => {
           class="bg-white"
           type="button"
         >
-          <img src="assets/images/google.png" alt="Google" class="inline-block mr-2 h-8 w-8" /> 
+          <img src="assets/images/google.png" alt="Google" class="inline-block w-8 h-8 mr-2" />
         </button>
         <button
           class="bg-white"
           type="button"
         >
-          <img src="assets/images/facebook.png" alt="Facebook" class="inline-block mr-2 h-8 w-8" /> 
+          <img src="assets/images/facebook.png" alt="Facebook" class="inline-block w-8 h-8 mr-2" />
         </button>
       </div>
       <div class="text-center text-zinc-600 dark:text-zinc-400">
