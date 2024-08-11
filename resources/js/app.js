@@ -8,9 +8,15 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
-// import 'primevue/resources/themes/aura-light-green/theme.css'
+import 'primeicons/primeicons.css'
+import Toast from 'primevue/toast';
+import ToastService from 'primevue/toastservice';
+import { createPinia } from 'pinia';
+
+
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
+const pinia = createPinia();
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
@@ -18,7 +24,20 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
-            .use(PrimeVue)
+            .use(PrimeVue, {
+                theme: {
+                    preset: Aura,
+                    options: {
+                        prefix: 'p',
+                        darkModeSelector: 'false',
+                        cssLayer: false
+                    }
+
+                }
+            })
+            .use(Toast)
+            .use(ToastService)
+            .use(pinia)
             .mount(el);
     },
     progress: {

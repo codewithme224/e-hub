@@ -1,9 +1,31 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
+
+// Auth Routes
+Route::prefix('api/auth')->group(function () {
+    Route::post('login', [AuthController::class, 'login'])->name('auth.login');
+    Route::post('register', [AuthController::class, 'register'])->name('auth.register');
+    Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
+    Route::get('auth-user', [AuthController::class, 'user'])->name('auth.user');
+    Route::post('reset-password', [AuthController::class, 'resetPassword']);
+    Route::post('update-password', [AuthController::class, 'updatePassword']);
+    Route::post('update-profile', [AuthController::class, 'updateProfile']);
+    Route::post('update-profile-picture', [AuthController::class, 'updateProfilePicture']);
+    Route::post('update-profile-cover', [AuthController::class, 'updateProfileCover']);
+    Route::post('update-profile-details', [AuthController::class, 'updateProfileDetails']);
+    Route::post('update-profile-contacts', [AuthController::class, 'updateProfileContacts']);
+    Route::post('update-profile-socials', [AuthController::class, 'updateProfileSocials']);
+    Route::post('update-profile-password', [AuthController::class, 'updateProfilePassword']);
+    Route::post('update-profile-email', [AuthController::class, 'updateProfileEmail']);
+    Route::post('update-profile-phone', [AuthController::class, 'updateProfilePhone']);
+});
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
