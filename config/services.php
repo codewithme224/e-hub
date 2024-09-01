@@ -31,7 +31,7 @@ return [
         ],
     ],
     'ehub' => [
-        'auth_service_url' => env('EHUB_AUTH_SERVICE_URL', 'http://127.0.0.1:8000/api/v1/registrationService'),
+        'auth_service_url' => env('EHUB_AUTH_SERVICE_URL', 'https://registration.ehubs.io/api/v1/registrationService'),
     ]
 
 ];
