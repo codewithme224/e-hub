@@ -95,7 +95,6 @@ const showRegister = () => {
                                 <p class="mb-6 text-black dark:text-black ">
                                     E-Hub Is A Hub That Bring Schools Closer To Achieving Maximum Productivity
                                 </p>
-                                <Button label="SIGN UP NOW" icon="pi-user-plus"  />
 
                                 <DynamicDialog />
 
